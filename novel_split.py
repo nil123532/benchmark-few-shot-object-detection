@@ -2,11 +2,14 @@ import os
 import random
 import shutil
 
-label_dir = '/home/nilesh/few-shot-coco/JSON2YOLO/novel_labels/labels/novel_set1/'
-train_dir = 'train_novel/labels/'
-other_dir = 'val_novel/labels/'
+random.seed(0)
+#np.random.seed(0)
+
+label_dir = '/home/nilesh/Benchmark/datasets/BCCD/train/labels'
+train_dir = 'train_novel_30shot_seed0/labels/'
+#other_dir = 'val_novel/labels/'
 os.makedirs(train_dir, exist_ok=True)
-os.makedirs(other_dir, exist_ok=True)
+#os.makedirs(other_dir, exist_ok=True)
 
 file_list = os.listdir(label_dir)
 random.shuffle(file_list)
