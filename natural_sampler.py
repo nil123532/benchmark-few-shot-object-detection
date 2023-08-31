@@ -5,8 +5,8 @@ import numpy as np
 from collections import defaultdict
 
 #set random seed
-random.seed(2)
-np.random.seed(2)
+random.seed(0)
+np.random.seed(0)
 # Given directory path
 label_dir = "/home/nilesh/Benchmark/datasets/BCCD/train/labels"
 image_dir = "/home/nilesh/Benchmark/datasets/BCCD/train/images"
@@ -73,15 +73,6 @@ for file in samples:
 for class_id, count in class_counts.items():
     print(f"Class {class_id}: {count} instances")
 class_image_counts = defaultdict(int)
-
-for file in samples:
-    for cls in get_classes(file):
-        class_image_counts[cls] += 1
-
-# Print the class counts in terms of images
-for class_id, count in class_image_counts.items():
-    print(f"Class {class_id}: {count} images")
-
 
 for file in samples:
     label_file_path = os.path.join(label_dir, file)

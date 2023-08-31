@@ -2,11 +2,11 @@ import os
 import random
 import shutil
 
-random.seed(0)
+random.seed(42)
 #np.random.seed(0)
 
-label_dir = '/home/nilesh/Benchmark/datasets/BCCD/train/labels'
-train_dir = 'train_novel_30shot_seed0/labels/'
+label_dir = '/home/nilesh/Benchmark/datasets/BCCD/train/labels/'
+train_dir = '/home/nilesh/Benchmark/datasets/BCCD/train_novel_30shot_seed0/labels/'
 #other_dir = 'val_novel/labels/'
 os.makedirs(train_dir, exist_ok=True)
 #os.makedirs(other_dir, exist_ok=True)
