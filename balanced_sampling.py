@@ -30,7 +30,9 @@ def generate_seeds():
                 sample_shots = 0
 
                 while True:
-                    potential_files = random.sample(list(label_img_files.keys()), min(shots - sample_shots, len(label_img_files)))
+                    #potential_files = random.sample(list(label_img_files.keys()), min(shots - sample_shots, len(label_img_files)))
+                    potential_files = random.sample(list(label_img_files.keys()), shots)
+
                     for file in potential_files:
                         if file not in sample_files:
                             if sample_shots + label_img_files[file] > shots:

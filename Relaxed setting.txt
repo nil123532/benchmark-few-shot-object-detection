@@ -1,0 +1,18 @@
+Relaxed setting
+Progressively relaxed both way.
+Why upper limit increases? To accommodate for class that cannot 
+reach 30 shots because there exists too many shots. 
+Why lower limit decreases? To accommodate for class that cannot 
+reach 30 shots because thee exists too few shots. [not applicable for 1 shots]
+
+How to progressively relax?
+upper_limit = shots + relaxed // upper limit 
+lower_limit = shots - relaxed // lower limit 
+
+if (sample_shots + temp > upper_limit) || (sample_shots + temp < lower_limit)
+	continue 
+
+//rest of code
+
+if (sample_shots < upper_limit) && (sample_shots > lower_limit)
+	break
