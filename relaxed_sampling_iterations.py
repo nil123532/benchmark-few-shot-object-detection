@@ -29,8 +29,10 @@ def generate_seeds():
                 sample_shots = 0
                 relaxed = 0  # Initialize the relaxed variable
                 all_sampled_files = set()  # To keep track of files that have been sampled
+                iterations = 0
 
                 while True:
+                    iterations += 1
                      # Progressively relax both upper and lower limits
                     upper_limit = shots + relaxed
                     lower_limit = max(1, shots - relaxed)  # Lower limit should not go below 1
@@ -55,12 +57,16 @@ def generate_seeds():
                      # If we have reached the number of shots, exit
                     if (sample_shots <= upper_limit) and (sample_shots >= lower_limit):
                         break
+                    #if iterations/10,000 = 0 relax
+                    if (iterations%100000) == 0 :
+                        relaxed += 1
+
                      # If we've gone through all the potential files, then relax the constraint
-                    if len(all_sampled_files) == len(label_img_files.keys()):
-                        relaxed += 1/(shots*shots)  # Increase the relaxation factor
-                        all_sampled_files = set()
+                    #if len(all_sampled_files) == len(label_img_files.keys()):
+                     #   relaxed += 1/(shots*shots)  # Increase the relaxation factor
+                      #  all_sampled_files = set()
                         #print("Relaxed!")
-        
+       
 
                 # Create directory to save sampled files
                 save_dir = get_save_path_seeds(shots, seed)

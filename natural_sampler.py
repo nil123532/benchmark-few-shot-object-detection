@@ -12,8 +12,8 @@ label_dir = "/home/nilesh/Benchmark/datasets/BCCD/train/labels"
 image_dir = "/home/nilesh/Benchmark/datasets/BCCD/train/images"
 
 # Create output directories for sampled images and labels
-sampled_label_dir = "/home/nilesh/Benchmark/datasets/BCCD/train_30shot/labels"
-sampled_image_dir = "/home/nilesh/Benchmark/datasets/BCCD/train_30shot/images"
+sampled_label_dir = "/home/nilesh/Benchmark/datasets/BCCD/train_10shot/labels"
+sampled_image_dir = "/home/nilesh/Benchmark/datasets/BCCD/train_10shot/images"
 
 os.makedirs(sampled_label_dir, exist_ok=True)
 os.makedirs(sampled_image_dir, exist_ok=True)
@@ -22,7 +22,7 @@ os.makedirs(sampled_image_dir, exist_ok=True)
 all_label_files = [f for f in os.listdir(label_dir) if os.path.isfile(os.path.join(label_dir, f))]
 
 # Step 1: Sample an initial dataset
-dlen = 90  # Number of samples
+dlen = 30  # Number of samples
 samples = set(np.random.choice(all_label_files, dlen, replace=False))
 
 # Get classes present in each label file
